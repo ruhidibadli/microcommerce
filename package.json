@@ -5,13 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --legacy-watch ./server.mjs"
+    "start": "nodemon --legacy-watch ./server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^3.0.3"
-  },
-  "type": "module"
+  }
 }
