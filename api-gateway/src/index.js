@@ -13,12 +13,15 @@ const optionsActivity = {
   target: ACTIVITY_API_URL,
   changeOrigin: true, 
   logger: console,
+  ignorePath:true,
+
 };
 
 const optionsAccount = {
   target: ACCOUNT_API_URL,
   changeOrigin: true, 
   logger: console,
+  ignorePath:true,
 };
 
 const activityProxy = createProxyMiddleware(optionsActivity);

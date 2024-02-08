@@ -5,6 +5,8 @@ services:
       - activity_db
     build: 
       context: .
+      
+    command: npm start
     ports:
       - 8082:8080
     environment:
@@ -28,8 +30,11 @@ services:
       - POSTGRES_PASSWORD=testuser
 
     ports:
-      - "8092:8082"
-
+      - "5433:5432"
+      
+    networks:
+      - backend
+  
 volumes:
   activity_db:
 

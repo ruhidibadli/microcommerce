@@ -10,7 +10,7 @@ app.listen(PORT, async () => {
     console.log("Started");
 });
 
-app.get('/accounts', (req, res) => {
+app.get('/', (req, res) => {
     const data = {
         ruhid:'ibadli',
         meslek:'developer'
