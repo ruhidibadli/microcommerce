@@ -3,6 +3,11 @@ const { DataTypes, Deferrable } = require("sequelize");
 
 
 var User = sequelize.define('User', {
+    user_id :{
+        type: DataTypes.INTEGER,
+        primaryKey:true,
+        autoIncrement:true,
+    },
     username:{
         type:DataTypes.STRING,
         validate:{
@@ -15,6 +20,7 @@ var User = sequelize.define('User', {
     password:DataTypes.STRING,
     first_name:DataTypes.STRING,
     last_name:DataTypes.STRING,
+    role:DataTypes.STRING,
     is_active:{
         type:DataTypes.BOOLEAN,
         defaultValue:false
