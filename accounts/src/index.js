@@ -1,14 +1,14 @@
 // import express from "express";
 const express = require("express");
-const { sequelize, connectDb } = require("../db/conf");
-
+const db = require("../models");
 const app = express();
 app.use(express.json())
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, async () => {
-    await connectDb();
     console.log("Started");
 });
+
+
 
 app.get('/', (req, res) => {
     const data = {
