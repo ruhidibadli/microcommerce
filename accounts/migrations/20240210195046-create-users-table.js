@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    queryInterface.createTable("users", {
+    queryInterface.createTable("Users", {
       user_id :{
         type: Sequelize.INTEGER,
         primaryKey:true,
@@ -26,7 +26,9 @@ module.exports = {
       is_active:{
           type:Sequelize.BOOLEAN,
           defaultValue:false
-      }
+      },
+      createdAt:Sequelize.DATE,
+      updatedAt:Sequelize.DATE
       })
   },
 

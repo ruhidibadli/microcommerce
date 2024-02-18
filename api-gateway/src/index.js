@@ -21,14 +21,13 @@ const optionsAccount = {
   target: ACCOUNT_API_URL,
   changeOrigin: true, 
   logger: console,
-  ignorePath:true,
 };
 
 const activityProxy = createProxyMiddleware(optionsActivity);
 const accountProxy = createProxyMiddleware(optionsAccount);
+app.use('/accounts', accountProxy);
+app.use('/activity', activityProxy);
 
 app.get('/', (req, res) => res.send('Hello Gateway API'));
-app.get('/accounts', accountProxy);
-app.get('/activity', activityProxy);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
