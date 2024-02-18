@@ -10,6 +10,10 @@ router.get('/', async (req, res) => {
 });
 
 
+
+const jwt_secret = process.env.JWT_SECRET;
+
+
 router.post('/register', async (req, res) => {
     const {username, password, email, first_name, last_name, role} = req.body;
     console.log(password);
@@ -36,9 +40,8 @@ router.post('/login', async (req, res) => {
     if (!hashedPassword || !(await bcrypt.compare(password, hashedPassword))){
         return res.status(401).send("Invalid username or password!");
     }
-    
 
-    const token = jwt.sign({ username }, 'secret', {expiresIn: '1h'});
+    const token = jwt.sign({ username }, jwt_secret, {expiresIn: '1h'});
 
     res.json({ token });
 });
@@ -47,7 +50,7 @@ router.post('/login', async (req, res) => {
 router.post('/verify', async (req, res) => {
     const token = req.headers.authorization?.split(' ')[1];
     if (!token) return res.status(401).send('Token not provided!');
-    jwt.verify(token, 'secret', (err, decoded) => {
+    jwt.verify(token, jwt_secret, (err, decoded) => {
         if (err) return res.status(403).send('Token Invalid!');
         res.json(decoded);
     });
