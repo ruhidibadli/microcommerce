@@ -23,8 +23,12 @@ const optionsAccount = {
   logger: console,
 };
 
+const authMiddleware = require('./auth-middleware');
+
+
 const activityProxy = createProxyMiddleware(optionsActivity);
 const accountProxy = createProxyMiddleware(optionsAccount);
+app.use(authMiddleware)
 app.use('/accounts', accountProxy);
 app.use('/activity', activityProxy);
 

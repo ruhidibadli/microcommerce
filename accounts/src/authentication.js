@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
 });
 
 
-
 const jwt_secret = process.env.JWT_SECRET;
 
 
@@ -48,7 +47,8 @@ router.post('/login', async (req, res) => {
 
 
 router.post('/verify', async (req, res) => {
-    const token = req.headers.authorization?.split(' ')[1];
+    // const token = req.headers.authorization?.split(' ')[1];
+    const token = req.body.token;
     if (!token) return res.status(401).send('Token not provided!');
     jwt.verify(token, jwt_secret, (err, decoded) => {
         if (err) return res.status(403).send('Token Invalid!');
