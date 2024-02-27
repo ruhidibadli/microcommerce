@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "testadmin",
+    "password": "testuser",
+    "database": "test_db",
+    "host": "activity_db",
+    "port":5432,
+    "dialect": "postgres"
+  }
+}

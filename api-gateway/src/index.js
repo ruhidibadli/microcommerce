@@ -13,8 +13,6 @@ const optionsActivity = {
   target: ACTIVITY_API_URL,
   changeOrigin: true, 
   logger: console,
-  ignorePath:true,
-
 };
 
 const optionsAccount = {
@@ -28,7 +26,7 @@ const authMiddleware = require('./auth-middleware');
 
 const activityProxy = createProxyMiddleware(optionsActivity);
 const accountProxy = createProxyMiddleware(optionsAccount);
-app.use(authMiddleware)
+// app.use(authMiddleware)
 app.use('/accounts', accountProxy);
 app.use('/activity', activityProxy);
 

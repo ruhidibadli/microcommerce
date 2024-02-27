@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { Users } = require("../models");
 const users = {};
+const axios = require('axios');
 
 router.get('/', async (req, res) => {
     res.json({ ruhid:'ibadli' });
@@ -41,6 +42,17 @@ router.post('/login', async (req, res) => {
     }
 
     const token = jwt.sign({ username }, jwt_secret, {expiresIn: '1h'});
+    axios.post('http://localhost:8083/activity/create_activity/', {
+        username: username,
+        detail: 'User logged in',
+        activity_type: 'login',
+    })
+    .then(function (response) {
+        console.log(response.data);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 
     res.json({ token });
 });
