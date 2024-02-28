@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   
-  app:
+  accounts:
     depends_on:
       - db
     build: 
@@ -40,4 +40,5 @@ volumes:
 
 networks:
   backend:
+    name: backend
     driver: bridge

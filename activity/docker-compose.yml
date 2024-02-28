@@ -1,6 +1,6 @@
 services:
   
-  app:
+  activity:
     depends_on:
       - activity_db
     build: 
@@ -40,4 +40,6 @@ volumes:
 
 networks:
   backend:
+    name: backend
     driver: bridge
+    external: true

@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
     }
 
     const token = jwt.sign({ username }, jwt_secret, {expiresIn: '1h'});
-    axios.post('http://localhost:8083/activity/create_activity/', {
+    axios.post('http://activity:8082/activity/create_activity', {
         username: username,
         detail: 'User logged in',
         activity_type: 'login',
