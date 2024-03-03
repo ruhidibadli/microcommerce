@@ -8,4 +8,4 @@ app.use(bodyParser.json());
 app.listen(8080, async () => {
     console.log(`Cart API listening on port 8080!`);
 });
-app.get('/', (req, res) => res.send('Hello Cart, API!'));
+app.get('/cart', (req, res) => res.send('Hello Cart, API!'));

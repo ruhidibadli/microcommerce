@@ -7,6 +7,9 @@ const port = 8083;
 const {
   ACCOUNT_API_URL,
   ACTIVITY_API_URL,
+  PRODUCT_API_URL,
+  ORDER_API_URL,
+  CART_API_URL,
 } = require('./urls');
 
 const optionsActivity = {
