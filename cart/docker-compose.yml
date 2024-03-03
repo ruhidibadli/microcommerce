@@ -1,0 +1,42 @@
+services:
+  
+  cart:
+    depends_on:
+      - cart_db
+    build: 
+      context: .
+      
+    command: npm start
+    ports:
+      - 8086:8080
+    environment:
+      - DB_HOST=cart_db
+      - DB_USER=testadmin
+      - DB_PASSWORD=testuser
+      - DB_NAME=test_db
+    
+    volumes:
+      - .:/app
+
+    networks:
+      - backend
+  
+  cart_db:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_DB=test_db
+      - POSTGRES_USER=testadmin
+      - POSTGRES_PASSWORD=testuser
+
+    ports:
+      - "5436:5432"
+      
+    networks:
+      - backend
+  
+volumes:
+  cart_db:
+
+networks:
+  backend:
+    external: true
