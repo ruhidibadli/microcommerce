@@ -40,9 +40,9 @@ router.post('/login', async (req, res) => {
     if (!hashedPassword || !(await bcrypt.compare(password, hashedPassword))){
         return res.status(401).send("Invalid username or password!");
     }
-
+    console.log(username);
     const token = jwt.sign({ username }, jwt_secret, {expiresIn: '1h'});
-    axios.post('http://activity:8082/activity/create_activity', {
+    axios.post('http://activity:8080/activity/create_activity/', {
         username: username,
         detail: 'User logged in',
         activity_type: 'login',
