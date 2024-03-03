@@ -10,7 +10,7 @@ var corsOptions = {
 app.get('/', (req, res) => res.send('Hello Activity, API!'));
 
 app.listen(8080, async () => {
-    console.log(`Products API listening on port 8080!`);
+    console.log(`Activity API listening on port 8080!`);
 });
 
 app.use(bodyParser.json());
